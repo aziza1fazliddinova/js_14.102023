@@ -72,15 +72,27 @@ let companies = [
         expenses: [500, 2500, 1000]
     },
 ]
-companies.forEach(company => {
-    let obshie_expenses = company.expenses.reduce(( a, b ) => a + b);
-    company.obshie_expenses= obshie_expenses;
+// companies.(company => {
+//     let obshie_expenses = company.expenses.reduce(( a, b ) => a + b);
+//     company.obshie_expenses= obshie_expenses;
 
-    companies.forEach(company => {
-        let obshiy_pribil = company.budget - company.obshie_expenses - (company.budget * (company.tax / 100));
-        company.obshiy_pribil = obshiy_pribil ;
-    });
+//     companies.forEach(company => {
+//         let obshiy_pribil = company.budget - company.obshie_expenses - (company.budget * (company.tax / 100));
+//         company.obshiy_pribil = obshiy_pribil ;
+//     });
     
-});
+// });
 
-console.table(companies);
+// console.table(companies);
+
+
+for (let i = 0; i < companies.length; i++) {
+    let obshie_expenses = companies[i].expenses.reduce((a, b) => a + b);
+    companies[i].obshie_expenses = obshie_expenses;
+  
+    let obshiy_pribil = companies[i].budget - companies[i].obshie_expenses - (companies[i].budget * (companies[i].tax / 100));
+    companies[i].obshiy_pribil = obshiy_pribil;
+  }
+  
+  console.table(companies);
+  
